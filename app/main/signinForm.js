@@ -31,12 +31,21 @@ async function loginUser() {
       loadingElement.style.display = 'block';
 
       setTimeout(() => {
-          // Redirect to the appropriate page based on the user's role
-          if (role === 'Student') {
-              window.location.href = "../Students System/students.html";
-          } else if (role === 'Teacher') {
-              window.location.href = "../Teachers System/teacher.html";
-          }
+
+        let basePath;
+
+        if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+            basePath = "../";
+        } else {
+            basePath = "";
+        }
+
+        // Redirect to the appropriate page based on the user's role
+        if (role === 'Student') {
+            window.location.href = basePath + "Students System/students.html";
+        } else if (role === 'Teacher') {
+            window.location.href = basePath + "Teachers System/teacher.html";
+        }
       }, 1000);
   } catch (error) {
       if(error.code === "auth/invalid-login-credentials"){

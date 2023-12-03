@@ -1,7 +1,7 @@
 document.getElementById("logout-icon").addEventListener("click", function() {
     auth.signOut().then(() => {
       // Redirige al usuario a la página de inicio de sesión después de cerrar la sesión
-      window.location.href = "../app/index.html";
+      window.location.href = "index.html";
     }).catch((error) => {
       // Maneja los errores aquí
       console.error(error);
