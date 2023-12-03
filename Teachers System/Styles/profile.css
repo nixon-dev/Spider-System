@@ -1,0 +1,46 @@
+/*CODE PERSONALIZADO PARA EL FORMULARIO E ICONO DE PERFIL*/
+.custom-form {
+    max-width: 800px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.custom-icon {
+    font-size: 3rem; /* Ajusta este valor a tus necesidades */
+    color: #007bff;
+    margin-top: 40px;;
+}
+
+@media (min-width: 768px) {
+    .custom-icon-container {
+        margin-top: 0;
+    }
+}
+
+
+/*SECTION MAIN OF PROFILE TEACHER*/
+#main-content {
+    min-height: 100vh;
+    padding: 50px;
+    margin-left: 300px; /* Ajusta este valor al ancho del sidebar cuando está abierto */
+    transition: margin-left 0.3s ease; /* Agrega una transición suave */
+}
+
+#sidebar.collapsed ~ #main-content {
+    margin-left: 70px; /* Ajusta este valor al ancho del sidebar cuando está colapsado */
+}
+
+/*SECTION MENU CONTAINER*/
+.card:hover {
+    transform: scale(1.05);
+    background-color: #f8f9fa;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+
+.trash-category:hover {
+    color: #dc3545;
+    transition: .3s;
+    cursor: pointer;
+}

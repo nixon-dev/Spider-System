@@ -1,0 +1,68 @@
+/*CODE STYLE SIGNIN & SIGNUP FORM*/
+#signin-form, #signup-form {
+    max-width: 500px; /* Ajusta este valor a tus necesidades */
+}
+
+.register-link, .backLogin{
+    font-size: 1.25rem; /* Ajusta este valor a tus necesidades */
+    color: #007bff; /* Color inicial del enlace */
+    transition: color 0.2s ease-in-out; /* Transición suave del color */
+}
+
+.register-link:hover, .backLogin:hover {
+    color: #0056b3; /* Color del enlace al pasar el mouse */
+}
+
+@media (min-width: 992px) { /* Ajusta este valor a tus necesidades */
+    #signin-form, #signup-form {
+        padding: 2rem; /* Reduce el padding del formulario */
+    }
+
+    .form-control-lg {
+        font-size: 1rem; /* Reduce el tamaño de fuente de los campos de entrada */
+    }
+
+    .display-4 {
+        font-size: 2.5rem; /* Reduce el tamaño de fuente del título */
+    }
+
+    .btn-lg {
+        padding: .5rem 1rem; /* Reduce el padding del botón */
+        font-size: 1rem; /* Reduce el tamaño de fuente del botón */
+    }
+}
+
+
+
+
+/*IMPUT STYLE CODE*/
+
+input[type="email"]:focus, input[type="password"]:focus {
+    box-shadow: 0 0 10px rgba(0,123,255,0.9); /* Aumenta la sombra cuando el campo de entrada está enfocado */
+}
+
+input::placeholder {
+    color: #aaa; /* Cambia esto al color que prefieras */
+    font-size: 18px;
+}
+
+.footer-develop{
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 5px;
+}
+
+.footer-develop p, a{
+    font-size: .7rem;
+    color: gray;
+    margin-bottom: 1px;
+}
+
+.footer-develop a{
+    text-decoration: none;
+}
+
+.footer-develop a:hover{
+    text-decoration: underline;
+}

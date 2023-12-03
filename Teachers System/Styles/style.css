@@ -1,0 +1,140 @@
+/* Estilo para el sidebar */
+#sidebar {
+  width: 250px; /* Ancho del sidebar */
+  height: 100vh; /* Altura del sidebar */
+  position: fixed; /* Fija el sidebar en su posición */
+}
+
+.bg-custom {
+  background-color: #007bff; /* Color de fondo del sidebar */
+}
+
+/* Estilo para los íconos y el texto */
+#sidebar .fas, #sidebar span {
+  margin-right: 20px; /* Espacio a la derecha de los íconos y el texto */
+}
+
+/* Estilo para los divs que contienen los íconos y el texto */
+#sidebar .d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinea los elementos a la izquierda */
+  margin-left: 40px; /* Agrega un margen a la izquierda */
+}
+
+/* Estilo para los divs que contienen los íconos y el texto cuando el sidebar está colapsado */
+#sidebar.active .d-flex {
+  justify-content: center; /* Centra los íconos horizontalmente */
+  flex-direction: column; /* Alinea los íconos verticalmente */
+  margin-bottom: 10px; /* Agrega espacio debajo de cada ícono */
+  margin-left: 10px;
+}
+
+/* Estilo para los íconos cuando el sidebar está colapsado */
+#sidebar.active .fas {
+  margin-bottom: 10px; /* Agrega espacio debajo de cada ícono */
+}
+
+/* Estilo para el sidebar cuando está colapsado */
+#sidebar.active {
+  width: 80px;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  display: flex;
+  align-items: center; /* Centra los íconos verticalmente */
+  justify-content: center; /* Centra los íconos horizontalmente */
+}
+
+/* Estilo para los divs que contienen los íconos y el texto cuando el sidebar está colapsado */
+#sidebar.active .d-flex {
+  flex-direction: column; /* Alinea los íconos verticalmente */
+}
+
+/* Estilo para el texto cuando el sidebar está colapsado */
+#sidebar.active span {
+  display: none; /* Oculta el texto cuando el sidebar está colapsado */
+}
+
+/* Estilo para el ícono de la flecha */
+#toggle-sidebar {
+  color: #fff; /* Color del ícono */
+  cursor: pointer; /* Cambia el cursor a una mano al pasar el mouse sobre el ícono */
+}
+
+/* Cambia el ícono a una flecha hacia la derecha cuando el sidebar está colapsado */
+#sidebar.active #toggle-sidebar {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+#home-link, #profile-link, #students-link, #grades-link {
+  color: #f1f1f1; /* Color del texto */
+  text-decoration: none; /* Quita el subrayado del texto */
+} 
+
+#home-link:hover, #profile-link:hover, #students-link:hover, #grades-link:hover{
+  color: #d9d9d9 !important; /* Cambia el color del texto al pasar el mouse sobre él */
+  cursor: pointer; /* Cambia el cursor a una mano al pasar el mouse sobre el texto */
+  transition: .3s;
+}
+
+#logout-link, #logout-link i, #logout-link span {
+  color: #f1f1f1;
+}
+
+#logout-link:hover, #logout-link:hover i, #logout-link:hover span {
+  color: #d9d9d9 !important;
+  cursor: pointer;
+  transition: .3s;
+}
+
+/* Estilo para el sidebar en pantallas de tablet y móvil */
+@media (max-width: 768px) {
+  #sidebar {
+    transform: translateX(-100%); /* Oculta el sidebar moviéndolo fuera de la vista */
+    transition: transform 0.3s ease;
+    position: fixed; /* Fija el sidebar en su posición */
+    top: 0; /* Asegura que el sidebar comienza en la parte superior del viewport */
+    bottom: 0; /* Asegura que el sidebar termina en la parte inferior del viewport */
+    z-index: 1000; /* Asegura que el sidebar se muestre por encima del contenido principal */
+  }
+
+  #sidebar.active {
+    width: 100%;
+    transform: translateX(0); /* Muestra el sidebar moviéndolo de vuelta a la vista */
+  }
+
+  /* Muestra la flecha siempre en pantallas de tablet y móvil */
+  .menu {
+    font-size: 1.5rem;
+    display: block;
+    position: fixed; /* Fija la flecha en su posición */
+    top: 20px; /* Posiciona la flecha en la parte superior de la pantalla */
+    left: 20px; /* Posiciona la flecha en la parte izquierda de la pantalla */
+    z-index: 1001; /* Asegura que la flecha se muestre por encima del sidebar */
+    color: blue; /* Cambia el color de la flecha a azul */
+  }
+}
+
+/* Estilo para el sidebar en pantallas de escritorio */
+@media (min-width: 769px) {
+  #sidebar {
+    transform: translateX(0); /* Muestra el sidebar */
+    position: fixed; /* Fija el sidebar en su posición */
+    top: 0; /* Asegura que el sidebar comienza en la parte superior del viewport */
+    bottom: 0; /* Asegura que el sidebar termina en la parte inferior del viewport */
+  }
+
+  #sidebar.active {
+    width: 80px; /* Ancho del sidebar cuando está colapsado */
+    /* Resto del código */
+  }
+
+  #sidebar.active span {
+    display: none; /* Oculta el texto cuando el sidebar está colapsado */
+  }
+
+  #sidebar.active ~ #main-content {
+    margin-left: 80px;
+  }
+}
