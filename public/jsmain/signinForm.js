@@ -34,9 +34,9 @@ async function loginUser() {
 
         // Redirect to the appropriate page based on the user's role
         if (role === 'Student') {
-            window.location.href = "../students/students.html";
+            window.location.href = "/students/students.html";
         } else if (role === 'Teacher') {
-            window.location.href = "../teachers/teacher.html";
+            window.location.href = "/teachers/teacher.html";
         }
       }, 1000);
   } catch (error) {
