@@ -50,7 +50,7 @@ input::placeholder {
     width: 100%;
     text-align: center;
     position: fixed;
-    bottom: 5px;
+    bottom: 20px;
 }
 
 .footer-develop p, a{
@@ -65,4 +65,17 @@ input::placeholder {
 
 .footer-develop a:hover{
     text-decoration: underline;
+}
+
+.main-content h1{
+    color: #0056b3;
+    text-align: center;
+}
+
+.main-content h3{
+    color: #0056b3;
+}
+
+.main-content{
+    padding: 40px;
 }
