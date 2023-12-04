@@ -73,3 +73,16 @@
     }
   }
 
+
+/* SCROLLBAR CODE */
+#scrollbar-top {
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 20px;
+}
+
+#scrollbar-bottom {
+  overflow-x: auto;
+  overflow-y: auto;
+  height: auto; /* Ajusta la altura automáticamente según el contenido */
+}

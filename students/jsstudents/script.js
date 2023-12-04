@@ -56,7 +56,7 @@ let tableGrades = document.getElementById("tableGrade");
 
 //FUNCTION TO PRINT THE COLOR ACORDING THE STUDENT'S GRADE
 function getGradeClass(grade) {
-    if (grade >= 2.0 && grade < 3.0) {
+    if (grade >= 0 && grade < 3.0) {
         return 'grade-low';
     } else if (grade >= 3.0 && grade < 4.0) {
         return 'grade-medium';

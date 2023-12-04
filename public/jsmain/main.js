@@ -25,16 +25,16 @@ function calculateAverage(grades) {
 
 // Function to calculate the weighted average of a set of grades
 function calculateWeightedAverage(student) {
-    let totalAverage = 0;
+    let total = 0;
     let totalPercentage = 0;
     for (let category in student) {
         // Check if the category is an object and contains grades
         if (typeof student[category] === 'object' && student[category] !== null) {
             let categoryAverage = calculateAverage(student[category]);
             let categoryPercentage = parseFloat(student[category].Percentage) / 100;
-            totalAverage += categoryAverage * categoryPercentage;
+            total += categoryAverage * categoryPercentage;
             totalPercentage += categoryPercentage;
         }
     }
-    return totalAverage / totalPercentage;
+    return total / totalPercentage;
 }

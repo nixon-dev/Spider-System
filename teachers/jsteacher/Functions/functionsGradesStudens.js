@@ -24,16 +24,17 @@ function generateSelectLevel() {
 // Funcion para filtrar lista de estudiantes
 function generateFilterStudents() {
     return `
-        <div class="container mt-5">
+        <div class="container mt-5 mb-4">
             <div class="row">
-                <div class="col-12 col-md-8">
+                <div class="col-12">
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-4 mb-3">
+
+                        <div class="col-12 col-sm-6 col-md-3 mb-3">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="height: 100%;"><i class="fas fa-sort"></i></span>
                                 </div>
-                                <select class="custom-select form-control" id="filter-order" style="width: 150px;">
+                                <select class="custom-select form-control" id="filter-lastanme" style="width: 150px;">
                                     <option selected value="">Sort by Lastname...</option>
                                     <option value="asc">Ascending</option>
                                     <option value="desc">Descending</option>
@@ -41,12 +42,12 @@ function generateFilterStudents() {
                             </div>
                         </div>
                         
-                        <div class="col-12 col-sm-6 col-md-4 mb-3">
+                        <div class="col-12 col-sm-6 col-md-3 mb-3">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="height: 100%;"><i class="fas fa-filter"></i></span>
                                 </div>
-                                <select class="custom-select form-control" id="filter-turn" style="width: 150px;">
+                                <select class="custom-select form-control" id="filter-round" style="width: 150px;">
                                     <option selected value="">Filter by Turn...</option>
                                     <option value="A.M">A.M</option>
                                     <option value="P.M">P.M</option>
@@ -54,23 +55,25 @@ function generateFilterStudents() {
                             </div>
                         </div>
 
-                        <div class="col-12 col-sm-6 col-md-4 mb-3">
+                        <div class="col-12 col-sm-6 col-md-3 mb-3">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="height: 100%;"><i class="fas fa-filter"></i></span>
                                 </div>
-                                <select class="custom-select form-control" id="filter-path" style="width: 150px;">
+                                <select class="custom-select form-control" id="filter-learning" style="width: 150px;">
                                     <option selected value="">Filter by Path Learning...</option>
                                     <option value="JavaScript">JavaScript</option>
                                     <option value="Python">Python</option>
                                 </select>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-center d-flex align-items-center justify-content-end mb-3">
-                            <button class="btn btn-outline-danger form-control" style="width: 150px;" id="clear-filters"><i class="fas fa-times"></i> Clear Filters</button>
+
+                        <div class="col-12 col-sm-6 col-md-3 mb-3">
+                            <div class="input-group">
+                            <button class="btn btn-outline-danger form-control" style="width: 150px;" id="clear-filter"><i class="fas fa-times"></i> Clear Filters</button>     
+                            </div>
                         </div>
+                    
                     </div>
                 </div>
             </div>
@@ -81,7 +84,18 @@ function generateFilterStudents() {
 // Función para mostrar los estudiantes en la tabla
 function displayGrades(students) {
     let table = `
-        <div class="table-responsive">
+        <div class="d-flex justify-content-end mb-3">
+            <button class='btn btn-primary d-flex justify-content-center align-items-center' id='save-grades-button' style='width: 150px;'>
+                <span id='save-grades-button'>Save grades</span>
+            </button>
+        </div>
+        
+        <div class="scrollbar" id="scrollbar-top">
+            <div style='min-width: 2000px;'></div>
+        </div>
+
+        <div class="table-responsive scrollbar" id="scrollbar-bottom">
+
             <table class="table mt-4">
                 <thead>
                     <tr>
@@ -97,36 +111,58 @@ function displayGrades(students) {
         }
     }
 
-    table += `</tr></thead><tbody id="table-grades" class="table-group-divider">`;
+    // Agrega la columna de Average
+    table += `<th scope="col">Average</th></tr></thead><tbody id="table-grades" class="table-group-divider">`;
 
     students.forEach((student) => {
         table += `<tr><td>${student.Lastname}</td><td>${student.Name}</td><th scope="row">${student.Email}</th>`;
         
-        // Dentro de la función `displayGrades`...
+        let total = 0;
+        let count = 0;
+
         for (let category in categories) {
             for (let i = 1; i <= categories[category]; i++) {
                 // Obtiene la nota existente
                 let grade = _.get(student, `${category}.${category} ${i}`, '');
-                table += `<td><input type="text" class="form-control grade-input" id="${category} ${i}-${student.id}" value="${grade}" style='width:70px;'></td>`;
+                if (grade) {
+                    total += parseFloat(grade);
+                    count++;
+                }
+                table += `<td><input type="text" class="form-control grade-input" id="${category} ${i}-${student.id}" value="${grade}" style='width:85px;'></td>`;
             }
         }
 
+        let average = count > 0 ? total / count : 0;
+        table += `<td><input type="text" class="form-control" value="${average.toFixed(2)}" readonly style='width:70px;'></td>`;
+        
         table += `</tr>`;
     });
 
-    table += `
+    table += ` 
                 </tbody>
             </table>
 
-            <div class="d-flex justify-content-end">
-                <button class='btn btn-primary d-flex justify-content-center align-items-center' id='save-grades-button' style='width: 150px;'>
-                    <span id='save-grades-button'>Save grades</span>
-                </button>
-            </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-3">
+            <button class='btn btn-primary d-flex justify-content-center align-items-center' id='save-grades-button' style='width: 150px;'>
+                <span id='save-grades-button'>Save grades</span>
+            </button>
         </div>
     `;
 
     document.getElementById('table-container').innerHTML = table;
+
+    let scrollbarTop = document.getElementById('scrollbar-top');
+    let scrollbarBottom = document.getElementById('scrollbar-bottom');
+    
+    scrollbarTop.onscroll = function() {
+        scrollbarBottom.scrollLeft = scrollbarTop.scrollLeft;
+    };
+    
+    scrollbarBottom.onscroll = function() {
+        scrollbarTop.scrollLeft = scrollbarBottom.scrollLeft;
+    };
 
     // Agrega un controlador de eventos al botón 'save-grades-button'
     let saveGradesButton = document.getElementById('save-grades-button');
@@ -222,6 +258,46 @@ function displayGrades(students) {
             }
         });
     });
+
+    // Agrega un controlador de eventos a los filtros: 
+    var filterLastname = document.getElementById('filter-lastanme');
+    var filterRound = document.getElementById('filter-round');
+    var filterLearning = document.getElementById('filter-learning');
+    var clearFilter = document.getElementById('clear-filter');
+
+    // Agrega un controlador de eventos a cada filtro
+    filterLastname.addEventListener('change', updateGradesTable);
+    filterRound.addEventListener('change', updateGradesTable);
+    filterLearning.addEventListener('change', updateGradesTable);
+
+    // Agrega un controlador de eventos al botón de limpiar filtros
+    clearFilter.addEventListener('click', function() {
+        // Restablece los valores de los filtros
+        filterLastname.value = '';
+        filterRound.value = '';
+        filterLearning.value = '';
+
+        // Actualiza la tabla de calificaciones
+        updateGradesTable();
+    });
+
+    // Función para actualizar la tabla de calificaciones
+    function updateGradesTable() {
+        // Obtén los valores actuales de los filtros
+        var lastname = filterLastname.value;
+        var turn = filterRound.value;
+        var pathLearning = filterLearning.value;
+
+        // Filtra la lista de estudiantes
+        var filteredStudents = students.filter(function(student) {
+            return (!lastname || student.Lastname === lastname) &&
+                (!turn || student.Turn === turn) &&
+                (!pathLearning || student['Path Learning'] === pathLearning);
+        });
+
+        // Muestra los estudiantes filtrados en la tabla
+        displayGrades(filteredStudents);
+    }
 }
 
 // Función para obtener la lista de estudiantes del nivel seleccionado
@@ -247,6 +323,8 @@ function getStudentsDataByLevel(callback, level) {
         });
         callback(students);
     });
+
+    
 }
 
 
@@ -254,7 +332,8 @@ function getStudentsDataByLevel(callback, level) {
 function buildGradePage() {
     const selectLevel = generateSelectLevel();
     const buttonAddStudent = generateButtonAddStudent("#addGradesModal", "add-grades-button", "Add Grades Categories");
-    const fullHTML = `${selectLevel} ${buttonAddStudent} <div id="table-container"></div>`;
+    const filterStudents = generateFilterStudents();
+    const fullHTML = `${selectLevel} ${buttonAddStudent} ${filterStudents} <div id="table-container"></div>`;
     document.getElementById('main-content').innerHTML = fullHTML;
 
     const addButton = document.getElementById('add-grades-button');
