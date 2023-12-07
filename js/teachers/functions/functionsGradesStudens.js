@@ -1,5 +1,5 @@
 // Variable Global
-let categories = {};
+let categories = [];
 
 //Funcion para seleccionar el nivel de los estudiantes
 function generateSelectLevel() {
@@ -85,8 +85,8 @@ function generateFilterStudents() {
 function displayGrades(students) {
     let table = `
         <div class="d-flex justify-content-end mb-3">
-            <button class='btn btn-primary d-flex justify-content-center align-items-center' id='save-grades-button' style='width: 150px;'>
-                <span id='save-grades-button'>Save grades</span>
+            <button class='btn btn-primary d-flex justify-content-center align-items-center save-grades-button' style='width: 150px;'>
+                <span>Save grades</span>
             </button>
         </div>
         
@@ -99,9 +99,9 @@ function displayGrades(students) {
             <table class="table mt-4">
                 <thead>
                     <tr>
+                        <th scope="col">#</th>
                         <th scope="col">Lastname</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Email</th>
     `;
 
     // Agrega las columnas de categorías
@@ -114,8 +114,11 @@ function displayGrades(students) {
     // Agrega la columna de Average
     table += `<th scope="col">Average</th></tr></thead><tbody id="table-grades" class="table-group-divider">`;
 
+    // Agrega un número de índice para cada estudiante
+    let index = 1; // Inicia el índice en 1
     students.forEach((student) => {
-        table += `<tr><td>${student.Lastname}</td><td>${student.Name}</td><th scope="row">${student.Email}</th>`;
+        table += `<tr><td>${index}</td><td>${student.Lastname}</td><td>${student.Name}</td>`; // Agrega el índice a la fila
+        index++; // Incrementa el índice para el próximo estudiante
         
         let total = 0;
         let count = 0;
@@ -145,13 +148,17 @@ function displayGrades(students) {
         </div>
 
         <div class="d-flex justify-content-end mt-3">
-            <button class='btn btn-primary d-flex justify-content-center align-items-center' id='save-grades-button' style='width: 150px;'>
-                <span id='save-grades-button'>Save grades</span>
+            <button class='btn btn-primary d-flex justify-content-center align-items-center save-grades-button' style='width: 150px;'>
+                <span>Save grades</span>
             </button>
         </div>
     `;
 
     document.getElementById('table-container').innerHTML = table;
+
+    // Después de que la tabla se haya añadido al DOM
+    let tableWidth = document.querySelector('#scrollbar-bottom table').offsetWidth;
+    document.querySelector('#scrollbar-top div').style.minWidth = `${tableWidth}px`;
 
     let scrollbarTop = document.getElementById('scrollbar-top');
     let scrollbarBottom = document.getElementById('scrollbar-bottom');
@@ -164,19 +171,19 @@ function displayGrades(students) {
         scrollbarTop.scrollLeft = scrollbarBottom.scrollLeft;
     };
 
-    // Agrega un controlador de eventos al botón 'save-grades-button'
-    let saveGradesButton = document.getElementById('save-grades-button');
-    if (!saveGradesButton.onclick) {
-        saveGradesButton.addEventListener('click', function() {
-            // Deshabilita el botón y muestra el indicador de carga
-            saveGradesButton.disabled = true;
-            saveGradesButton.innerHTML = `
+    // Agrega un controlador de eventos al botón de guardar calificaciones
+    let saveGradesButton = document.querySelectorAll('.save-grades-button');
+    saveGradesButton.forEach(button => {
+        button.addEventListener('click', function(){
+            // Deshabilita el boton y muestra el indice de carga
+            button.disabled = true;
+            button.innerHTML =  `
             <div class="container-loading">
                 <div class="dot"></div>
                 <div class="dot"></div>
                 <div class="dot"></div>
             </div>
-        `;
+            `;
 
             // Obtén el nivel seleccionado
             const selectedLevel = document.getElementById('select-level').value;
@@ -215,12 +222,12 @@ function displayGrades(students) {
                     displayGrades(students);
 
                     // Habilita el botón y oculta el indicador de carga
-                    saveGradesButton.disabled = false;
-                    saveGradesButton.innerHTML = 'Save grades';
+                    button.disabled = false;
+                    button.innerHTML = 'Save grades';
                 }, selectedLevel);
             }, selectedLevel);
         });
-    }
+    });
 
     // Después de crear la tabla...
     document.querySelectorAll('.grade-input').forEach((input) => {
@@ -288,12 +295,30 @@ function displayGrades(students) {
         var turn = filterRound.value;
         var pathLearning = filterLearning.value;
 
-        // Filtra la lista de estudiantes
-        var filteredStudents = students.filter(function(student) {
-            return (!lastname || student.Lastname === lastname) &&
-                (!turn || student.Turn === turn) &&
-                (!pathLearning || student['Path Learning'] === pathLearning);
+        // Ordena la lista de estudiantes
+        var sortedStudents = students.sort(function(a, b) {
+            if (lastname === 'asc') {
+                return a.Lastname.localeCompare(b.Lastname);
+            } else if (lastname === 'desc') {
+                return b.Lastname.localeCompare(a.Lastname);
+            } else {
+                return 0;
+            }
         });
+
+       // Filtra la lista de estudiantes ordenada
+       var filteredStudents = sortedStudents.filter(function(student) {
+        var matchesTurn = !turn || student.Turn === turn;
+        var matchesPathLearning = !pathLearning || student['Path Learning'].toLowerCase() === pathLearning.toLowerCase();
+    
+        console.log('Student:', student);
+        console.log('Matches Turn:', matchesTurn);
+        console.log('Matches Path Learning:', matchesPathLearning);
+    
+        return matchesTurn && matchesPathLearning;
+    });
+
+        console.log('Filtered students:', filteredStudents);
 
         // Muestra los estudiantes filtrados en la tabla
         displayGrades(filteredStudents);
