@@ -266,70 +266,73 @@ function displayGrades(students) {
         });
     });
 
-    // Agrega un controlador de eventos a los filtros: 
-    var filterLastname = document.getElementById('filter-lastanme');
-    var filterRound = document.getElementById('filter-round');
-    var filterLearning = document.getElementById('filter-learning');
-    var clearFilter = document.getElementById('clear-filter');
+}
 
-    // Agrega un controlador de eventos a cada filtro
-    filterLastname.addEventListener('input', updateGradesTable);
-    filterRound.addEventListener('input', updateGradesTable);
-    filterLearning.addEventListener('input', updateGradesTable);
+let filterChangeHandler; 
+// Función para manejar la actualización de la tabla de estudiantes
+function updateGradesTable() {
+    const filterLastname = document.getElementById('filter-lastanme');
+    const filterRound = document.getElementById('filter-round');
+    const filterLearning = document.getElementById('filter-learning');
+    const clearFilter = document.getElementById('clear-filter');
 
-    // Agrega un controlador de eventos al botón de limpiar filtros
-    clearFilter.addEventListener('click', function() {
-        // Restablece los valores de los filtros
-        filterLastname.value = '';
-        filterRound.value = '';
-        filterLearning.value = '';
-
-        // Actualiza la tabla de calificaciones
-        updateGradesTable();
-    });
-
-    // Función para actualizar la tabla de calificaciones
-    function updateGradesTable() {
-        // Obtén los valores actuales de los filtros
-        var lastname = filterLastname.value;
-        var turn = filterRound.value;
-        var pathLearning = filterLearning.value;
-
-        // Crea una copia del array de estudiantes
-        var studentsCopy = students.slice();
-
-        // Ordena la lista de estudiantes
-        var sortedStudents = studentsCopy.sort(function(a, b) {
-            if (lastname === 'asc') {
-                return a.Lastname.localeCompare(b.Lastname);
-            } else if (lastname === 'desc') {
-                return b.Lastname.localeCompare(a.Lastname);
-            } else {
-                return 0;
-            }
-        });
-
-       // Filtra la lista de estudiantes ordenada
-        var filteredStudents = sortedStudents.filter(function(student) {
-        var matchesTurn = !turn || student.Turn === turn;
-        var matchesPathLearning = !pathLearning || student['Path Learning'].toLowerCase() === pathLearning.toLowerCase();
-    
-        console.log('Student:', student);
-        console.log('Matches Turn:', matchesTurn);
-        console.log('Matches Path Learning:', matchesPathLearning);
-    
-        return matchesTurn && matchesPathLearning;
-    });
-
-        console.log('Filtered students:', filteredStudents);
-
-        // Muestra los estudiantes filtrados en la tabla
-        displayGrades(filteredStudents);
+    const filterOptions = [filterLastname, filterRound, filterLearning];
+    if (filterOptions.some(option => !option)) {
+        console.error('One or more select elements not found');
+        return;
     }
+
+    filterChangeHandler = () => {
+        const levelSelect = document.getElementById('select-level');
+        const level = levelSelect.value; // Obtén el nivel del valor seleccionado en levelSelect
+
+        console.log('filterChangeHandler called'); // Agrega esta línea
+
+        getStudentsDataByLevel(function (students) {
+            console.log('getStudentsDataByLevel callback called with', students);
+            const selectedLastname = filterLastname.value;
+            const selectedRound = filterRound.value;
+            const selectedLearning = filterLearning.value;
+
+            let filteredStudents = students.filter((student) =>
+                (selectedRound === "" || student.Turn.toLowerCase() === selectedRound.toLowerCase()) &&
+                (selectedLearning === "" || student['Path Learning'].toLowerCase() === selectedLearning.toLowerCase())
+            );
+
+            if (selectedLastname === 'asc') {
+                filteredStudents.sort((a, b) => a.Lastname.localeCompare(b.Lastname));
+            } else {
+                filteredStudents.sort((a, b) => b.Lastname.localeCompare(a.Lastname));
+            }
+            console.log('filteredStudents:', filteredStudents);
+            displayGrades(filteredStudents);
+        }, level);
+    };
+
+    filterOptions.forEach(option => {
+        console.log('Adding event listener to', option); 
+        option.addEventListener('input', filterChangeHandler);
+    });
+
+    // Agrega un event listener al botón "clear-filter"
+    if (clearFilter) {
+        clearFilter.addEventListener('click', () => {
+            // Resetea todos los select a su valor por defecto
+            filterOptions.forEach(option => {
+                option.value = '';
+            });
+
+            // Actualiza la tabla
+            filterChangeHandler();
+        });
+    }
+
+    filterChangeHandler();
 }
 
 // Función para obtener la lista de estudiantes del nivel seleccionado
 function getStudentsDataByLevel(callback, level) {
+    console.log('getStudentsDataByLevel called with', level); 
     db.collection("users").get().then((querySnapshot) => {
         const students = [];
         categories = {}; // Reinicia las categorías
@@ -350,11 +353,8 @@ function getStudentsDataByLevel(callback, level) {
             }
         });
         callback(students);
-    });
-
-    
+    });   
 }
-
 
 // Función para construir la página completa de estudiantes por nivel
 function buildGradePage() {
@@ -375,6 +375,12 @@ function buildGradePage() {
         addButton.disabled = this.value === '';
         const selectedLevel = this.value; // Obtén el nivel seleccionado
         getStudentsDataByLevel(displayGrades, selectedLevel); // Pasa el nivel seleccionado como segundo argumento
+
+        // Llama a updateGradesTable después de que los elementos de filtro se hayan agregado al DOM
+        updateGradesTable();
+
+        // Llama a filterChangeHandler con el nivel seleccionado
+        filterChangeHandler();
     });
 }
 
