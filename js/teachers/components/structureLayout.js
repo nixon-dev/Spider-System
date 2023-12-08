@@ -106,6 +106,7 @@ function generateStudentTable(){
                 <table class="table mt-4">
                     <thead>
                         <tr>
+                            <th scope="col">#</th>
                             <th scope="col">Email</th>
                             <th scope="col">Lastname</th>
                             <th scope="col">Name</th>

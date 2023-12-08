@@ -273,9 +273,9 @@ function displayGrades(students) {
     var clearFilter = document.getElementById('clear-filter');
 
     // Agrega un controlador de eventos a cada filtro
-    filterLastname.addEventListener('change', updateGradesTable);
-    filterRound.addEventListener('change', updateGradesTable);
-    filterLearning.addEventListener('change', updateGradesTable);
+    filterLastname.addEventListener('input', updateGradesTable);
+    filterRound.addEventListener('input', updateGradesTable);
+    filterLearning.addEventListener('input', updateGradesTable);
 
     // Agrega un controlador de eventos al botón de limpiar filtros
     clearFilter.addEventListener('click', function() {
@@ -295,8 +295,11 @@ function displayGrades(students) {
         var turn = filterRound.value;
         var pathLearning = filterLearning.value;
 
+        // Crea una copia del array de estudiantes
+        var studentsCopy = students.slice();
+
         // Ordena la lista de estudiantes
-        var sortedStudents = students.sort(function(a, b) {
+        var sortedStudents = studentsCopy.sort(function(a, b) {
             if (lastname === 'asc') {
                 return a.Lastname.localeCompare(b.Lastname);
             } else if (lastname === 'desc') {
@@ -307,7 +310,7 @@ function displayGrades(students) {
         });
 
        // Filtra la lista de estudiantes ordenada
-       var filteredStudents = sortedStudents.filter(function(student) {
+        var filteredStudents = sortedStudents.filter(function(student) {
         var matchesTurn = !turn || student.Turn === turn;
         var matchesPathLearning = !pathLearning || student['Path Learning'].toLowerCase() === pathLearning.toLowerCase();
     

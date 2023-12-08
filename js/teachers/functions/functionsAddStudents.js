@@ -38,9 +38,11 @@ function displayStudents(students) {
     const tableBody = document.getElementById('table-body');
     tableBody.innerHTML = '';
 
-    students.forEach((student) => {
+    students.forEach((student, index) => {
+        const studentNumber = index + 1;
         tableBody.innerHTML += `
             <tr>
+                <th scope="row">${studentNumber}</th>
                 <th scope="row">${student.Email}</th>
                 <td>${student.Lastname}</td>
                 <td>${student.Name}</td>
