@@ -34,7 +34,7 @@ function generateFilterStudents() {
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="height: 100%;"><i class="fas fa-sort"></i></span>
                                 </div>
-                                <select class="custom-select form-control" id="filter-lastanme" style="width: 150px;">
+                                <select class="custom-select form-control" id="filter-lastname" style="width: 150px;">
                                     <option selected value="">Sort by Lastname...</option>
                                     <option value="asc">Ascending</option>
                                     <option value="desc">Descending</option>
@@ -271,7 +271,7 @@ function displayGrades(students) {
 let filterChangeHandler; 
 // Función para manejar la actualización de la tabla de estudiantes
 function updateGradesTable() {
-    const filterLastname = document.getElementById('filter-lastanme');
+    const filterLastname = document.getElementById('filter-lastname');
     const filterRound = document.getElementById('filter-round');
     const filterLearning = document.getElementById('filter-learning');
     const clearFilter = document.getElementById('clear-filter');
