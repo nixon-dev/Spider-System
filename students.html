@@ -12,30 +12,52 @@
     <script src="https://kit.fontawesome.com/034ad25fb8.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="css/students/style.css">
+    <link rel="stylesheet" href="css/main/sidebar.css">
+    <link rel="stylesheet" href="css/students/homework.css">
+    <link rel="stylesheet" href="css/students/profile.css">
+    <link rel="stylesheet" href="css/students/grades.css">
+    <link rel="stylesheet" href="css/students/main.css">
   </head>
   <body class="body">
-
     <!--Particles-->
     <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></div>
-        
-    <header>
-        <i id="logout-icon" class="fa-solid fa-right-to-bracket" style="color: #007bff;"></i>
-    </header>
-        
-        <!--Box to show the content-->
-        <div class="box-container">
-            <!--Section to find grade for username-->
-            <h1 class="text-align-center" id="welcome-message"><span id="user-name"></span> <i class="fa-solid fa-face-laugh-wink" style="color: #ffd333;"></i></h1>
+
+    <i id="toggle-sidebar" class="fas fa-arrow-left mb-4"></i>
+           <!-- Sidebar -->
+      <div id="sidebar-student" class="bg-custom text-light min-vh-100 d-flex flex-column p-3">
+        <div class="mb-auto mt-5">
+          <div class="d-flex align-items-center mb-3 ml-5" id="home-student">
+            <i class="fas fa-home fa-1x mr-2"></i>
+            <span>Home</span>
+          </div>
+          <div class="d-flex align-items-center mb-3 ml-5" id="profile-student">
+            <i class="fas fa-user fa-1x mr-2"></i>
+            <span>Your Profile</span>
+          </div>
+          
+            <div class="d-flex align-items-center mb-3 ml-5" id="grades-student">
+                <i class="fas fa-book-open fa-1x mr-2"></i>
+                <span>Your Grades</span>
+            </div>
+            <div class="d-flex align-items-center mb-3 ml-5" id="homework-student">
+                <i class="fas fa-pencil-alt fa-1x mr-2"></i>
+                <span>Your Homework</span>
+            </div>
         </div>
-    
-             <!--Section Table Grade-->
-        <div id="tableGrade"></div>
-        
-        <div class="chatTeacher">
-          <a href="mailto:nombre.apellido@motta.superate.org.pa?subject=New Message of Spider System&body=Dear Teacher!">
-            <i class="fa-solid fa-comment tooltip-large" style="color: #007bff;" data-bs-toggle="tooltip" data-bs-placement="top" title="Type to Teacher here"></i>
-        </a>
+        <div class="mt-auto footer-sidebar">
+            <a href="#dark-mode" class="text-decoration-none text-warning d-flex align-items-center mb-3 ml-5" id="darkmode-link">
+                <i class="fas fa-moon fa-1x mr-2"></i>
+                <span>Dark Mode</span>
+            </a>
+            <a href="index.html" class="text-decoration-none text-primary d-flex align-items-center ml-5" id="logout-link">
+                <i class="fas fa-sign-out-alt fa-1x mr-2"></i>
+                <span>Logout</span>
+            </a>
+        </div>
       </div>
+    
+             <!--Content Section-->
+        <div id="content-student" class="col"></div>
         
         <footer class="footer-develop">
             <p>&copy; Copyright | Developed by <span>nixdev</span> with <i class="fa-solid fa-heart" style="color: #05b322;"></i></p>
@@ -47,7 +69,12 @@
     <script src="js/main/particles.js"></script>
     <script src="js/main/showmessage.js"></script>
     <script src="js/main/main.js"></script>
+    <script src="js/main/sidebar.js"></script>
     <script src="js/students/script.js"></script>
+    <script src="js/students/main.js"></script>
+    <script src="js/students/grades.js"></script>
+    <script src="js/students/profile.js"></script>
+    <script src="js/students/homework.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>

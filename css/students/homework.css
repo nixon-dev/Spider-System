@@ -1,0 +1,16 @@
+.working{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.working-header h2{
+    text-align: center;
+}
+
+.working-icon i{
+    font-size: 4rem;
+    color: #007bff;
+}

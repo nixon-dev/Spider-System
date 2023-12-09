@@ -1,0 +1,25 @@
+.user-profile {
+    color: #007bff;
+    font-size: 3rem;
+}
+
+.container-profile {
+    height: 80vh;
+}
+
+#profile-form-student {
+    max-width: 800px;
+}
+
+/*Code Password*/
+.position-relative {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    border: none;
+    background: transparent;
+}

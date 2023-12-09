@@ -30,13 +30,6 @@ body{
     transition: .3s;
 }
 
-h1{
-    margin-bottom: 20px;
-    font-size: 3rem;
-    font-weight: 600;
-}
-
-
 .table {
     margin-top: 30px !important;
     text-align: center;
@@ -80,24 +73,14 @@ h1{
     position: relative;
 }
 
-.chatTeacher{
-    position: fixed;
-    font-size: 50px;
+.footer-develop{
+    margin-top: 30px;
+    position: relative;
     bottom: 0;
-    left: 0;
-    margin-left: 30px;
-    margin-bottom: 20px;
-    z-index: 1000;
-}
-
-.chatTeacher:hover{
-    color: #452dfb;
-    cursor: pointer;
-    transition: .3s;
 }
 
 .footer-develop p{
-    margin-bottom: 5px;
+    margin-bottom: 0;
 }
 
 .footer-develop a{
@@ -182,4 +165,38 @@ h1{
     font-size: 3rem;
     font-weight: 600;
     margin-top: 20px;
+}
+
+/*SECTION OF TABLE RESPONSIVE*/
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex-cell {
+    flex: 1;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #007bff;
+}
+
+.cell-header{
+   font-weight: bold;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-header {
+    flex: 1;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
 }
