@@ -2,6 +2,7 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     var sidebar = document.getElementById('sidebar-student');
     var content = document.getElementById('content-student');
+    var footer = document.getElementById('footer');
     var menuIcon = document.getElementById('menu-icon');
 
     // Si la pantalla es pequeña, colapsa el sidebar y muestra el ícono de menú
@@ -9,13 +10,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
         sidebar.classList.add('active');
         content.style.width = '100%';
         content.style.marginLeft = '0';
+        footer.style.marginLeft = '0';
         menuIcon.style.display = 'block';
+    } else {
+        // En pantallas grandes, ajusta el margen izquierdo del contenido principal en función de si el sidebar está expandido o colapsado
+        content.style.marginLeft = sidebar.classList.contains('active') ? '80px' : '250px';
+        footer.style.marginLeft = sidebar.classList.contains('active') ? '80px' : '250px'; 
     }
 });
 
 document.getElementById('toggle-student').addEventListener('click', function() {
     var sidebar = document.getElementById('sidebar-student');
     var content = document.getElementById('content-student');
+    var footer = document.getElementById('footer'); 
     var menuIcon = document.getElementById('menu-icon');
 
     // Agrega o quita la clase 'active' al sidebar
@@ -31,9 +38,11 @@ document.getElementById('toggle-student').addEventListener('click', function() {
     } else if (sidebar.classList.contains('active')) {
         // Si el sidebar está activo (colapsado), ajusta el margen izquierdo del contenido principal a 80px
         content.style.marginLeft = '80px';
+        footer.style.marginLeft = '80PX';
     } else {
         // Si el sidebar no está activo (expandido), ajusta el margen izquierdo del contenido principal a 250px
         content.style.marginLeft = '250px';
+        footer.style.marginLeft = '250px';
     }
 });
 
