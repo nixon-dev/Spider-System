@@ -17,7 +17,7 @@ function showStudentInfo() {
                                 <div class="row">
                                     <div class="upload-image mb-3 col-12 text-center">
                                         <label for="profile-picture"><i class="fas fa-user user-profile custom-icon"></i></label>
-                                        <p id="textRol">Rol: <span id="roleStudent"></span></p>
+                                        <p id="textRol">Role: <span id="roleStudent"></span></p>
                                         <p id="textRol" style='font-weight: bold;'><span id="emailStudent"></span></p>
                                     </div>
                                 </div>
@@ -60,12 +60,13 @@ function showStudentInfo() {
                                     </div>
 
                                 </div>
-                        
+                                <!--Code Button Submit
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end">
                                         <input id="saveChangesStudent" type="submit" value="Save Changes" class="btn btn-primary btn-fixed-width">
                                     </div>
                                 </div>
+                                -->
                             </form>
                         </div>
                     `;

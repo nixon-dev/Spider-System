@@ -8,49 +8,6 @@ function loadGradesStudent() {
 
 document.getElementById('grades-student').addEventListener('click', loadGradesStudent);
 
-    auth.onAuthStateChanged(user => {
-        if (user) {
-            // El usuario está autenticado, puedes mostrar las calificaciones
-            showGrades();
-
-            // Obtén los datos del usuario de Firebase
-            db.collection('users').doc(user.uid).get().then((doc) => {
-                if (doc.exists) {
-                    // Obtiene el nombre del usuario
-                    let name = "Welcome, " + doc.data().Name;
-
-                    // Inicializa el índice
-                    let index = 0;
-
-                    // Crea la función de animación
-                    function animateName() {
-                        // Agrega el carácter en la posición del índice al elemento HTML
-                        document.getElementById('user-name').textContent += name[index];
-
-                        // Incrementa el índice
-                        index++;
-
-                        // Si el índice es menor que la longitud de la cadena, llama a la función después de un retraso
-                        if (index < name.length) {
-                            setTimeout(animateName, 200);  // 500ms de retraso entre cada carácter
-                        }
-                    }
-
-                    // Llama a la función por primera vez
-                    animateName();
-                } else {
-                    // El documento no existe
-                    console.log("No such document!");
-                }
-            }).catch((error) => {
-                console.log("Error getting document:", error);
-            });
-        } else {
-            // El usuario no está autenticado
-            console.log("No user logged in");
-        }
-    });
-
     // Obtiene la tabla de estudiantes
     let contentStudent = document.getElementById("content-student");
 
