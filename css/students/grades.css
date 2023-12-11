@@ -8,3 +8,7 @@
     margin: auto;
     max-width: 1000px;
 }
+
+.flex-row .grades{
+    color: #121212;
+}
