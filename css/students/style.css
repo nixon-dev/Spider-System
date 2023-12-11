@@ -66,32 +66,6 @@ body{
     font-weight: 700;
 }
 
-.footer-develop{
-    text-align: center;
-    font-size: 0.7rem;
-    margin-top: auto;
-    position: relative;
-}
-
-.footer-develop{
-    margin-top: 30px;
-    position: relative;
-    bottom: 0;
-}
-
-.footer-develop p{
-    margin-bottom: 0;
-}
-
-.footer-develop a{
-    text-decoration: none;
-    color: #452dfb;
-}
-
-.footer-develop a:hover{
-    color: #090909;
-}
-
 .error-message {
     text-align: center;
     font-size: 30px;

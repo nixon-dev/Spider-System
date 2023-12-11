@@ -1,4 +1,4 @@
-document.getElementById('profile-link').addEventListener('click', function() {
+document.getElementById('profile-teacher').addEventListener('click', function() {
     var formHTML = `
         <div class="d-flex justify-content-center align-items-center vh-100">
             <form id="profile-form" class="container custom-form">
@@ -70,7 +70,7 @@ document.getElementById('profile-link').addEventListener('click', function() {
         </div>
         `;
 
-    document.getElementById('main-content').innerHTML = formHTML;
+    document.getElementById('content-teacher').innerHTML = formHTML;
 
         // Obtiene el usuario actualmente logueado
         const user = auth.currentUser;

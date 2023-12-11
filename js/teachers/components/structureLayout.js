@@ -134,7 +134,7 @@ function buildStudentPage() {
     const studentTable = generateStudentTable();
 
     const fullHTML = `${searchSection} ${buttonAddStudent} ${filtersSection} ${studentTable}`;
-    document.getElementById('main-content').innerHTML = fullHTML;
+    document.getElementById('content-teacher').innerHTML = fullHTML;
 }
 
 

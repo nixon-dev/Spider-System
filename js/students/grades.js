@@ -63,6 +63,7 @@ document.getElementById('grades-student').addEventListener('click', loadGradesSt
 
         
                             contentStudent.innerHTML = `
+                               <div class='container'>
                                 <div class="title-grades display-4 mb-4"><h2>Grades Information</h2></div>
 
                                 <div class="flex-container">
@@ -70,25 +71,26 @@ document.getElementById('grades-student').addEventListener('click', loadGradesSt
                                         <div class="flex-header" style='text-align: center;'>Your Grades</div>
                                     </div>
                                     <div class="flex-row">
-                                        <div class="flex-cell cell-header">VNC Grades (40%)</div>
-                                        <div class="flex-cell cell-grades">${vncGrades}</div>
+                                        <div class="flex-cell cell-header grades-category">VNC Grades (40%)</div>
+                                        <div class="flex-cell cell-grades grades">${vncGrades}</div>
                                     </div>
                                     <div class="flex-row">
-                                        <div class="flex-cell cell-header">Quiziz Grades (25%)</div>
-                                        <div class="flex-cell cell-grades">${quizesGrades}</div>
+                                        <div class="flex-cell cell-header grades-category">Quiziz Grades (25%)</div>
+                                        <div class="flex-cell cell-grades grades">${quizesGrades}</div>
                                     </div>
                                     <div class="flex-row">
-                                        <div class="flex-cell cell-header">Project Grades (25%)</div>
-                                        <div class="flex-cell cell-grades">${projectGrades}</div>
+                                        <div class="flex-cell cell-header grades-category">Project Grades (25%)</div>
+                                        <div class="flex-cell cell-grades grades">${projectGrades}</div>
                                     </div>
                                     <div class="flex-row">
-                                        <div class="flex-cell cell-header">PLM Grades (10%)</div>
-                                        <div class="flex-cell cell-grades">${plmGrades}</div>
+                                        <div class="flex-cell cell-header grades-category">PLM Grades (10%)</div>
+                                        <div class="flex-cell cell-grades grades">${plmGrades}</div>
                                     </div>
                                     <div class="flex-row">
-                                        <div style='text-align: center;' class="flex-header">Your Average is: <br><span id="average" class="${averageClass}"> ${weightedAverage.toFixed(2)}</span></div>
+                                        <div style='text-align: center;' class="flex-header flex-average">Your Average is: <br><span id="average" class="${averageClass}"> ${weightedAverage.toFixed(2)}</span></div>
                                     </div>
                                 </div>
+                             </div>
                         `;
                         });
                         

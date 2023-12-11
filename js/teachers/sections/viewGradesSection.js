@@ -1,4 +1,4 @@
 
-document.getElementById('grades-link').addEventListener('click', function() {
+document.getElementById('grades-teacher').addEventListener('click', function() {
         buildGradePage();
     });

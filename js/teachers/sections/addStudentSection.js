@@ -1,6 +1,6 @@
 
 //CODIGO PRINCIPAL DE LA PAGINA DE ADD STUDENT
-document.getElementById('students-link').addEventListener('click', function() {
+document.getElementById('students-teacher').addEventListener('click', function() {
     buildStudentPage();//Este código imrpime el diseño de tabla de HTML para mostrar los datos del estudiante
     
     

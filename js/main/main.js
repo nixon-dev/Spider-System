@@ -38,3 +38,16 @@ function calculateWeightedAverage(student) {
     }
     return total / totalPercentage;
 }
+
+//FUNCTION TO PRINT THE COLOR ACORDING THE STUDENT'S GRADE
+function getGradeClass(grade) {
+    if (grade >= 0 && grade < 3.0) {
+        return 'grade-low';
+    } else if (grade >= 3.0 && grade < 4.0) {
+        return 'grade-medium';
+    } else if (grade >= 4.0 && grade <= 5.0) {
+        return 'grade-high';
+    } else {
+        return '';
+    }
+}

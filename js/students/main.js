@@ -3,7 +3,7 @@
 function loadHomeStudent() {
     let homeContainer =  `
             <!-- Section main Box -->
-            <div class="container-fluid mt-5">
+            <div class="container container-fluid mt-5">
             <!-- Welcome message -->
             <div class="text-center">
                 <h1 class="text-center fs-1 fs-sm-2 fs-md-3 fs-lg-4 fs-xl-5" id="welcome-message"><span id="user-name"></span> <i class="fa-solid fa-face-laugh-wink" style="color: #ffd333;"></i></h1>

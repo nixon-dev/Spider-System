@@ -6,3 +6,12 @@
 .card:hover {
     transform: scale(1.05);
 }
+
+.card-text{
+    color: #121212;
+}
+
+/*Codigo para ajustar el padding de todas las secciones*/
+.container{
+    padding: 30px;
+}

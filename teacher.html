@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!--Link de ico web-->
+    <link rel="icon" href="assets/spiderweb.ico">
+
     <!--Link de librerias-->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://kit.fontawesome.com/034ad25fb8.js" crossorigin="anonymous"></script>
@@ -18,10 +21,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth-compat.js"></script>
     
     <!--Link para CSS-->
-    <link rel="stylesheet" href="css/teachers/style.css">
+    <link rel="stylesheet" href="css/teachers/sidebarTeacher.css">
+    <link rel="stylesheet" href="css/teachers/darkmodeTeacher.css">
     <link rel="stylesheet" href="css/teachers/profile.css">
     <link rel="stylesheet" href="css/teachers/loading.css">
     <link rel="stylesheet" href="css/teachers/showtable.css">
+    <link rel="stylesheet" href="css/main/style.css">
     <title>Teacher Profile</title>
 </head>
 
@@ -29,44 +34,50 @@
     <!--Particles-->
     <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></div>
   
-      <i class="fa-solid fa-bars menu" style="color: #007bff;" style="display: none;"></i>
+    <i id="menu-icon-teacher" class="icon fas fa-bars"></i>
       <!-- Sidebar -->
-      <div id="sidebar" class="bg-custom text-light min-vh-100 d-flex flex-column p-3">
-        <i id="toggle-sidebar" class="fas fa-arrow-left mb-4"></i>
+      <div id="sidebar-teacher" class="bg-custom text-light min-vh-100 d-flex flex-column p-3">
+        <i id="toggle-teacher" class="icon fas fa-arrow-left mb-4"></i>
         <div class="mb-auto mt-5">
-          <div class="d-flex align-items-center mb-3 ml-5" id="home-link">
-            <i class="fas fa-home fa-1x mr-2"></i>
+          <div class="d-flex align-items-center mb-3 ml-5" id="home-teacher">
+            <i class="icon fas fa-home fa-1x mr-2"></i>
             <span>Home</span>
           </div>
-          <div class="d-flex align-items-center mb-3 ml-5" id="profile-link">
-            <i class="fas fa-user fa-1x mr-2"></i>
+          <div class="d-flex align-items-center mb-3 ml-5" id="profile-teacher">
+            <i class="icon fas fa-user fa-1x mr-2"></i>
             <span>Your Profile</span>
           </div>
           
-            <div class="d-flex align-items-center mb-3 ml-5" id="students-link">
-                <i class="fas fa-user-plus fa-1x mr-2"></i>
+            <div class="d-flex align-items-center mb-3 ml-5" id="students-teacher">
+                <i class="icon fas fa-user-plus fa-1x mr-2"></i>
                 <span>Add Student</span>
             </div>
-            <div class="d-flex align-items-center mb-3 ml-5" id="grades-link">
-                <i class="fas fa-eye fa-1x mr-2"></i>
+            <div class="d-flex align-items-center mb-3 ml-5" id="grades-teacher">
+                <i class="icon fas fa-eye fa-1x mr-2"></i>
                 <span>View Grades</span>
             </div>
         </div>
         <div class="mt-auto footer-sidebar">
-            <a href="#dark-mode" class="text-decoration-none text-warning d-flex align-items-center mb-3 ml-5" id="darkmode-link">
-                <i class="fas fa-moon fa-1x mr-2"></i>
-                <span>Dark Mode</span>
-            </a>
-            <a href="index.html" class="text-decoration-none text-primary d-flex align-items-center ml-5" id="logout-link">
-                <i class="fas fa-sign-out-alt fa-1x mr-2"></i>
-                <span>Logout</span>
-            </a>
+          <div class="text-decoration-none text-warning d-flex align-items-center mb-3 ml-5" id="darkmodeTeacher">
+              <i id="icon-moom-teacher" class="fas fa-moon fa-1x mr-2"></i>
+              <i id="icon-sun-teacher" class="fas fa-sun fa-1x mr-2" style="display: none;"></i>
+              <span id="text-mode-teacher">Dark Mode</span>
+          </div>
+          <a href="index.html" class="text-decoration-none text-primary d-flex align-items-center ml-5" id="logout-link">
+              <i class="icon fas fa-sign-out-alt fa-1x mr-2"></i>
+              <span>Logout</span>
+          </a>
         </div>
       </div>
 
-    <div id="main-content" class="col">
+    <div id="content-teacher" class="col">
         <!-- Aquí se mostrará la información relevante cuando se haga click en una sección del sidebar -->
     </div>
+
+    <footer class="footer-develop" id="footer">
+      <p class="copyright">&copy; Copyright | Developed by <span>nixdev</span> with <i class="fa-solid fa-heart" style="color: #05b322;"></i></p>
+      <a class="link-copyright" href="politics.html" target="_blank">Privacy Politics</a>
+    </footer>
 
 
     <!-- Modal de Add Student -->
@@ -249,11 +260,11 @@
     <script src="js/main/main.js"></script>
 
     <!--Scripts de componentes -->
-    <script src="js/teachers/components/sidebar.js"></script>
     <script src="js/teachers/components/addStudentButton.js"></script>
     <script src="js/teachers/components/structureLayout.js"></script>
     <script src="js/teachers/components/addGradesModal.js"></script>
     <script src="js/teachers/components/getGradesModal.js"></script>
+    <script src="js/teachers/components/sidebar.js"></script>
 
     <!--Scripts de secciones -->
     <script src="js/teachers/sections/profileSection.js"></script>
@@ -262,7 +273,6 @@
     <script src="js/teachers/sections/homeSection.js"></script>
 
     <!--Scripts de funciones -->
-    <script src="js/teachers/functions/functionsSaveGrades.js"></script>
     <script src="js/teachers/functions/functionsAddStudents.js"></script>
     <script src="js/teachers/functions/functionsGradesStudens.js"></script>
 

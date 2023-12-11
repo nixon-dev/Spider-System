@@ -362,7 +362,7 @@ function buildGradePage() {
     const buttonAddStudent = generateButtonAddStudent("#addGradesModal", "add-grades-button", "Add Grades Categories");
     const filterStudents = generateFilterStudents();
     const fullHTML = `${selectLevel} ${buttonAddStudent} ${filterStudents} <div id="table-container"></div>`;
-    document.getElementById('main-content').innerHTML = fullHTML;
+    document.getElementById('content-teacher').innerHTML = fullHTML;
 
     const addButton = document.getElementById('add-grades-button');
     const levelSelect = document.getElementById('select-level');

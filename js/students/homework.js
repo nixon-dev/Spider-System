@@ -1,6 +1,6 @@
 function loadHomeworkStudent(){
     let homeworkContainer = `
-    <div class="working">
+    <div class="working container">
         <div class="working-header" display-5><h2>Estamos trabajando en la version Beta 2.0</h2></div>
         <div class="working-icon"><i class="fas fa-cogs"></i></div>
     </div>  

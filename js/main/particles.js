@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 type: 'circle',
             },
             opacity: {
-                value: 0.5,
+                value: 0.1,
                 random: false,
             },
             size: {

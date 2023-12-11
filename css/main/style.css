@@ -1,3 +1,18 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .form-container{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .flex-grow {
+    flex-grow: 1;
+}
+
 /*CODE STYLE SIGNIN & SIGNUP FORM*/
 #signin-form, #signup-form {
     max-width: 500px; /* Ajusta este valor a tus necesidades */
@@ -33,9 +48,7 @@
 }
 
 
-
-
-/*IMPUT STYLE CODE*/
+/*INPUT STYLE CODE*/
 
 input[type="email"]:focus, input[type="password"]:focus {
     box-shadow: 0 0 10px rgba(0,123,255,0.9); /* Aumenta la sombra cuando el campo de entrada está enfocado */
@@ -44,27 +57,6 @@ input[type="email"]:focus, input[type="password"]:focus {
 input::placeholder {
     color: #aaa; /* Cambia esto al color que prefieras */
     font-size: 18px;
-}
-
-.footer-develop{
-    width: 100%;
-    text-align: center;
-    position: fixed;
-    bottom: 20px;
-}
-
-.footer-develop p, a{
-    font-size: .7rem;
-    color: gray;
-    margin-bottom: 1px;
-}
-
-.footer-develop a{
-    text-decoration: none;
-}
-
-.footer-develop a:hover{
-    text-decoration: underline;
 }
 
 .main-content h1{
@@ -79,3 +71,33 @@ input::placeholder {
 .main-content{
     padding: 40px;
 }
+
+/*Code Footer for Login & Register*/
+.footer-develop{
+    text-align: center;
+    font-size: 0.7rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-develop-section{
+    text-align: center;
+    font-size: 0.7rem;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.footer-develop p, .footer-develop-section p{
+    margin-bottom: 0;
+}
+
+.footer-develop a, .footer-develop-section a{
+    text-decoration: none;
+    color: #452dfb;
+}
+
+.footer-develop a:hover, .footer-develop-section a:hover{
+    color: #090909;
+}
+
+

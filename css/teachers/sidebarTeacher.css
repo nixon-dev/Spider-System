@@ -1,6 +1,6 @@
 
 /* Estilo para el sidebar */
-#sidebar-student {
+#sidebar-teacher{
     position: relative;
     width: 250px; /* Ancho del sidebar */
     height: 100vh; /* Altura del sidebar */
@@ -15,12 +15,12 @@
   }
   
   /* Estilo para los íconos y el texto */
-  #sidebar-student .fas, #sidebar-student span {
+  #sidebar-teacher .fas, #sidebar-teacher span {
     margin-right: 20px; /* Espacio a la derecha de los íconos y el texto */
   }
   
   /* Estilo para los divs que contienen los íconos y el texto */
-  #sidebar-student .d-flex {
+  #sidebar-teacher .d-flex {
     display: flex;
     align-items: center;
     justify-content: flex-start; /* Alinea los elementos a la izquierda */
@@ -28,7 +28,7 @@
   }
   
   /* Estilo para los divs que contienen los íconos y el texto cuando el sidebar está colapsado */
-  #sidebar-student.active .d-flex {
+  #sidebar-teacher.active .d-flex {
     justify-content: center; /* Centra los íconos horizontalmente */
     flex-direction: column; /* Alinea los íconos verticalmente */
     margin-bottom: 10px; /* Agrega espacio debajo de cada ícono */
@@ -36,12 +36,12 @@
   }
   
   /* Estilo para los íconos cuando el sidebar está colapsado */
-  #sidebar-student.active .fas {
+  #sidebar-teacher.active .fas {
     margin-bottom: 10px; /* Agrega espacio debajo de cada ícono */
   }
   
   /* Estilo para el sidebar cuando está colapsado */
-  #sidebar-student.active {
+  #sidebar-teacher.active {
     width: 80px;
     overflow: hidden;
     transition: width 0.3s ease;
@@ -51,27 +51,27 @@
   }
   
   /* Estilo para los divs que contienen los íconos y el texto cuando el sidebar está colapsado */
-  #sidebar-student.active .d-flex {
+  #sidebar-teacher.active .d-flex {
     flex-direction: column; /* Alinea los íconos verticalmente */
   }
   
   /* Estilo para el texto cuando el sidebar está colapsado */
-  #sidebar-student.active span {
+  #sidebar-teacher.active span {
     display: none; /* Oculta el texto cuando el sidebar está colapsado */
   }
 
   /* Cambia el ícono a una flecha hacia la derecha cuando el sidebar está colapsado */
-  #sidebar-student.active #toggle-student {
+  #sidebar-teacher.active #toggle-teacher {
     transform: rotate(180deg);
     transition: transform 0.3s ease;
   }
   
-  #home-student, #profile-student, #grades-student, #homework-student {
+  #home-teacher, #profile-teacher, #students-teacher, #grades-teacher {
     color: #f1f1f1; /* Color del texto */
     text-decoration: none; /* Quita el subrayado del texto */
   } 
   
-  #home-student:hover, #profile-student:hover, #grades-student:hover, #homework-student:hover{
+  #home-teacher:hover, #profile-teacher:hover, #students-teacher:hover, #grades-teacher:hover{
     color: #d9d9d9 !important; /* Cambia el color del texto al pasar el mouse sobre él */
     cursor: pointer; /* Cambia el cursor a una mano al pasar el mouse sobre el texto */
     transition: .3s;
@@ -88,7 +88,7 @@
   }
 
 /* El ícono de flecha siempre está visible en la esquina */
-#sidebar-student #toggle-student {
+#sidebar-teacher #toggle-teacher {
   color: #f1f1f1;
   position: fixed;
   top: 20px;
@@ -98,7 +98,7 @@
   transition: .3s;
 }
 
-#menu-icon {
+#menu-icon-teacher {
   font-size: 1.3rem;
   color: #007bff;
   position: fixed;
@@ -113,25 +113,26 @@
 /* Estilo para pantallas pequeñas */
 @media (max-width: 768px) {
   /* Cuando el sidebar está expandido, ocupa toda la anchura y muestra los textos de las secciones centrados */
-  #sidebar-student:not(.active) {
+  #sidebar-teacher:not(.active) {
       width: 100%;
       height: 100vh;
   }
 
-  #sidebar-student:not(.active) .d-flex {
+  #sidebar-teacher:not(.active) .d-flex {
       justify-content: center;
   }
 
   /* Cuando el sidebar está colapsado, desaparece por completo */
-  #sidebar-student.active {
+  #sidebar-teacher.active {
       width: 0;
+      height: 100vh;
       overflow: hidden;
       margin: 0;
       padding: 0;
       visibility: hidden;
   }
 
-  #menu-icon {
+  #menu-icon-teacher {
     display: block; /* Muestra el ícono en pantallas pequeñas */
   }
 

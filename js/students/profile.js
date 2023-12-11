@@ -13,50 +13,52 @@ function showStudentInfo() {
 
                     contentStudent.innerHTML = `
                         <div class="d-flex justify-content-center align-items-center container-profile">
-                            <form id="profile-form-student" class="container custom-form">
+                            <form id="profile-form-student" class="custom-form">
                                 <div class="row">
                                     <div class="upload-image mb-3 col-12 text-center">
                                         <label for="profile-picture"><i class="fas fa-user user-profile custom-icon"></i></label>
-                                        <p id="textRol">Role: <span id="roleStudent"></span></p>
-                                        <p id="textRol" style='font-weight: bold;'><span id="emailStudent"></span></p>
+                                        <p class='text text-role' id="textRol">Role: <span id="roleStudent"></span></p>
+                                        <p class='text text-email' id="textRol" style='font-weight: bold;'><span id="emailStudent"></span></p>
                                     </div>
                                 </div>
                         
                                 <div class="row">
                                     <div class="input-container mb-3 col-12 col-lg-6">
-                                        <label for="first-name">Name</label>
-                                        <input class="form-control form-control-lg" type="text" id="nameStudent" name="first-name" readonly>
+                                        <label for="first-name" class='text mb-2'>Name</label>
+                                        <input class="input form-control form-control-lg" type="text" id="nameStudent" name="first-name" readonly>
                                     </div>
                                             
                                     <div class="input-container mb-3 col-12 col-lg-6">
-                                        <label for="last-name">Lastname</label>
-                                        <input class="form-control form-control-lg" type="text" id="lastnameStudent" name="last-name" readonly>
+                                        <label for="last-name" class='text mb-2'>Lastname</label>
+                                        <input class="input form-control form-control-lg" type="text" id="lastnameStudent" name="last-name" readonly>
                                     </div>      
                                 </div>
                         
                                 <div class="row"> 
                                     <div class="input-container mb-3 col-12 col-lg-6">
-                                        <label id="label-course-category" for="course-category">Path Learning:</label>
-                                        <input class="form-control form-control-lg" type="text" id="pathLearningStudent" name="pathlearning" readonly>
+                                        <label id="label-course-category" for="course-category" class='text mb-2'>Path Learning:</label>
+                                        <input class="input form-control form-control-lg" type="text" id="pathLearningStudent" name="pathlearning" readonly>
                                     </div>
                                 
                                     <div class="input-container mb-3 col-12 col-lg-6">
-                                        <label for="school">Turn</label>
-                                        <input class="form-control form-control-lg" type="text" id="turnStudent" name="turn" readonly>
+                                        <label for="school" class='text mb-2'>Turn</label>
+                                        <input class="input form-control form-control-lg" type="text" id="turnStudent" name="turn" readonly>
                                     </div>   
                                 </div>
                         
                                 <div class="row">
 
                                     <div class="input-container mb-3 col-12 col-lg-6">
-                                        <label for="school">Level</label>
-                                        <input class="form-control form-control-lg" type="text" id="levelStudent" name="level" readonly>
+                                        <label for="school" class='text mb-2'>Level</label>
+                                        <input class="input form-control form-control-lg" type="text" id="levelStudent" name="level" readonly>
                                     </div>
 
                                     <div class="input-container mb-3 col-12 col-lg-6 position-relative">
-                                        <label for="passwordStudent">Password</label>
-                                        <input class="form-control form-control-lg" type="password" id="passwordStudent" name="password" readonly>
-                                        <button id="togglePassword" class="position-absolute toggle-password" type="button"><i class="fa fa-eye"></i></button>
+                                        <label for="passwordStudent" class='text mb-2'>Password</label>
+                                        <input class="input input-password form-control form-control-lg" type="password" id="passwordStudent" name="password" readonly>
+                                        <i class="iconeye fa fa-eye" id="showPassword" style="display: none;"></i>
+                                        <i class="iconeye fa fa-eye-slash" id="hidePassword"></i>
+                                    
                                     </div>
 
                                 </div>
@@ -91,16 +93,19 @@ function showStudentInfo() {
                     levelStudent.value = data.Category;
                     passwordStudent.value = data.Password;
 
-                    document.getElementById('togglePassword').addEventListener('click', function (e) {
+                    // Get the icon eye elements to show and hide the password
+                    document.getElementById('showPassword').addEventListener('click', function (e) {
                         const passwordInput = document.getElementById('passwordStudent');
-                        const togglePasswordButton = document.getElementById('togglePassword');
-                        if (passwordInput.type === "password") {
-                            passwordInput.type = "text";
-                            togglePasswordButton.innerHTML = '<i class="fa fa-eye"></i>';
-                        } else {
-                            passwordInput.type = "password";
-                            togglePasswordButton.innerHTML = '<i class="fa fa-eye-slash"></i>';
-                        }
+                        passwordInput.type = "text";
+                        this.style.display = 'none';
+                        document.getElementById('hidePassword').style.display = 'block';
+                    });
+                    
+                    document.getElementById('hidePassword').addEventListener('click', function (e) {
+                        const passwordInput = document.getElementById('passwordStudent');
+                        passwordInput.type = "password";
+                        this.style.display = 'none';
+                        document.getElementById('showPassword').style.display = 'block';
                     });
                 });
             }
