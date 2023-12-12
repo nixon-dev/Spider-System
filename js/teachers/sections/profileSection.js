@@ -1,34 +1,34 @@
 document.getElementById('profile-teacher').addEventListener('click', function() {
     var formHTML = `
-        <div class="d-flex justify-content-center align-items-center vh-100">
-            <form id="profile-form" class="container custom-form">
+        <div class="d-flex justify-content-center align-items-center">
+            <form id="profile-form" class="custom-form">
                 <div class="row">
                     <div class="upload-image mb-3 col-12 text-center">
                         <label for="profile-picture"><i class="fas fa-user user-profile custom-icon"></i></label>
-                        <p id="textRol">Rol: <span id="printRole"></span></p>
+                        <p  class='text' id="textRol">Rol: <span id="printRole"></span></p>
                     </div>
                 </div>
 
                 <div class="row">
                 <div class="input-container mb-3 col-12 col-lg-6">
-                    <label for="email">Email</label>
-                    <input class="form-control form-control-lg" type="email" id="email" name="email">
+                    <label for="email" class='text mb-2'>Email</label>
+                    <input class="input form-control form-control-lg" type="email" id="email" name="email">
                 </div>
                 <div class="input-container mb-3 col-12 col-lg-6">
-                    <label for="first-name">Name</label>
-                    <input class="form-control form-control-lg" type="text" id="first-name" name="first-name">
+                    <label for="first-name" class='text mb-2'>Name</label>
+                    <input class="input form-control form-control-lg" type="text" id="first-name" name="first-name">
                 </div>
             </div>
 
             <div class="row">
             <div class="input-container mb-3 col-12 col-lg-6">
-                <label for="last-name">Lastname</label>
-                <input class="form-control form-control-lg" type="text" id="last-name" name="last-name">
+                <label for="last-name" class='text mb-2'>Lastname</label>
+                <input class="input form-control form-control-lg" type="text" id="last-name" name="last-name">
             </div>
 
             <div class="input-container mb-3 col-12 col-lg-6">
-                <label id="label-subject" for="subject">Subject</label>
-                <select id="subject" class="form-select form-select-lg" aria-label="Default select example">
+                <label id="label-subject" for="subject" class='text mb-2'>Subject</label>
+                <select id="subject" class="input form-select form-select-lg" aria-label="Default select example">
                     <option selected>Open this select menu</option>
                     <option value="English">English</option>
                     <option value="Math">Math</option>
@@ -40,8 +40,8 @@ document.getElementById('profile-teacher').addEventListener('click', function() 
 
         <div class="row">
         <div class="input-container mb-3 col-12 col-lg-6">
-            <label id="label-course-category" for="course-category">Category:</label>
-            <select id="course-category" class="form-select form-select-lg" aria-label="Default select example">
+            <label id="label-course-category" for="course-category" class='text mb-2'>Category:</label>
+            <select id="course-category" class="input form-select form-select-lg" aria-label="Default select example">
                 <option selected>Open this select menu</option>
                 <option value="Freshman">Freshman</option>
                 <option value="Junior">Junior</option>
@@ -49,15 +49,15 @@ document.getElementById('profile-teacher').addEventListener('click', function() 
             </select>
         </div>
             <div class="input-container mb-3 col-12 col-lg-6">
-                <label for="school">School</label>
-                <input class="form-control form-control-lg" type="text" id="school" name="school">
+                <label for="school" class='text mb-2'>School</label>
+                <input class="input form-control form-control-lg" type="text" id="school" name="school">
             </div>
         </div>
 
         <div class="row">
             <div class="input-container mb-3 col-12">
-                    <label for="Aboutme" class="form-label">About me</label>
-                    <textarea class="form-control form-control-lg textarea" id="About me" rows="3"></textarea>
+                    <label for="Aboutme" class="form-label text mb-2">About me</label>
+                    <textarea class="input form-control form-control-lg textarea" id="About me" rows="3"></textarea>
                 </div>
             </div>
 

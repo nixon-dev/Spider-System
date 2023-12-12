@@ -57,27 +57,6 @@ body.dark-mode-teacher .iconeye{
     color: #f1f1f1;
 }
 
-/*Code Grades Style*/
-body.dark-mode-teacher .flex-header{
-    background-color: #2c2c2c;
-    color: #007bff;
-}
-
-body.dark-mode-teacher .flex-cell{
-    background-color: #121212;
-    border: 1px solid #2c2c2c;
-}
-
-body.dark-mode-teacher .grades-category, .grades{
-    color: #f1f1f1;
-}
-
-/*Code Homework Section*/
-
-body.dark-mode-teacher .working-header{
-    color: #f1f1f1;
-}
-
 /*Code Light Mode*/
 #icon-sun-teacher{
     color: #f1f1f1;

@@ -5,7 +5,7 @@ let categories = [];
 function generateSelectLevel() {
     return `
         <h2 class="text-center mt-3 mb-4 display-6">Add & View Grades</h2>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center container">
             <div class="col-12 col-sm-8 col-md-6 col-lg-6">
                 <div class="input-group">
                     <select class="custom-select form-control form-control-lg" id="select-level">

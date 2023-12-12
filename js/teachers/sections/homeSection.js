@@ -4,7 +4,7 @@
 function loadHomeSection() {
     let homeContainer =  `
             <!-- Section main Box -->
-            <div class="container-fluid mt-5">
+            <div class="container-fluid mt-5 container">
             <!-- Welcome message -->
             <div class="text-center">
                 <h1 class="display-4">Welcome to Spider System</h1>
