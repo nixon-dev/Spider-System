@@ -9,7 +9,7 @@ function generateSearchSection(title) {
             <div class="row justify-content-center mt-4">
                 <div class="col-12 col-md-6">
                     <div class="input-group">
-                        <input type="text" class="form-control form-control-lg" id="search-student-input" placeholder="Search by first name, last name or email...">
+                        <input type="text" class=" input form-control form-control-lg" id="search-student-input" placeholder="Search by first name, last name or email...">
                         <div class="input-group-append">
                             <button class="btn btn-secondary btn-lg" id="search-button" type="button">Search</button>
                         </div>
@@ -37,7 +37,7 @@ function generateFiltersSection(){
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="filter-category">Category:</label>
                         </div>
-                        <select class="custom-select form-control" id="filter-category" style="max-width: 200px;">
+                        <select class="input custom-select form-control" id="filter-category">
                             <option selected value="">Sort by category...</option>
                             <option value="Freshman">Freshman</option>
                             <option value="Junior">Junior</option>
@@ -53,7 +53,7 @@ function generateFiltersSection(){
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="height: 100%;"><i class="fas fa-sort"></i></span>
                                 </div>
-                                <select class="custom-select form-control" id="filter-order" style="width: 150px;">
+                                <select class=" input custom-select form-control" id="filter-order" style="width: 150px;">
                                     <option selected value="">Sort by Lastname...</option>
                                     <option value="asc">Ascending</option>
                                     <option value="desc">Descending</option>
@@ -66,7 +66,7 @@ function generateFiltersSection(){
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="height: 100%;"><i class="fas fa-filter"></i></span>
                                 </div>
-                                <select class="custom-select form-control" id="filter-turn" style="width: 150px;">
+                                <select class="input custom-select form-control" id="filter-turn" style="width: 150px;">
                                     <option selected value="">Filter by Turn...</option>
                                     <option value="A.M">A.M</option>
                                     <option value="P.M">P.M</option>
@@ -79,7 +79,7 @@ function generateFiltersSection(){
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="height: 100%;"><i class="fas fa-filter"></i></span>
                                 </div>
-                                <select class="custom-select form-control" id="filter-path" style="width: 150px;">
+                                <select class="input custom-select form-control" id="filter-path" style="width: 150px;">
                                     <option selected value="">Filter by Path Learning...</option>
                                     <option value="JavaScript">JavaScript</option>
                                     <option value="Python">Python</option>

@@ -8,7 +8,7 @@ function generateSelectLevel() {
         <div class="row justify-content-center container">
             <div class="col-12 col-sm-8 col-md-6 col-lg-6">
                 <div class="input-group">
-                    <select class="custom-select form-control form-control-lg" id="select-level">
+                    <select class="input custom-select form-control form-control-lg" id="select-level">
                         <option selected value="">Choose a level...</option>
                         <option value="Freshman">Freshman</option>
                         <option value="Junior">Junior</option>
@@ -34,7 +34,7 @@ function generateFilterStudents() {
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="height: 100%;"><i class="fas fa-sort"></i></span>
                                 </div>
-                                <select class="custom-select form-control" id="filter-lastname" style="width: 150px;">
+                                <select class="input custom-select form-control" id="filter-lastname" style="width: 150px;">
                                     <option selected value="">Sort by Lastname...</option>
                                     <option value="asc">Ascending</option>
                                     <option value="desc">Descending</option>
@@ -47,7 +47,7 @@ function generateFilterStudents() {
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="height: 100%;"><i class="fas fa-filter"></i></span>
                                 </div>
-                                <select class="custom-select form-control" id="filter-round" style="width: 150px;">
+                                <select class="input custom-select form-control" id="filter-round" style="width: 150px;">
                                     <option selected value="">Filter by Turn...</option>
                                     <option value="A.M">A.M</option>
                                     <option value="P.M">P.M</option>
@@ -60,7 +60,7 @@ function generateFilterStudents() {
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="height: 100%;"><i class="fas fa-filter"></i></span>
                                 </div>
-                                <select class="custom-select form-control" id="filter-learning" style="width: 150px;">
+                                <select class="input custom-select form-control" id="filter-learning" style="width: 150px;">
                                     <option selected value="">Filter by Path Learning...</option>
                                     <option value="JavaScript">JavaScript</option>
                                     <option value="Python">Python</option>

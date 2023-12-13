@@ -53,6 +53,20 @@ body.dark-mode-teacher .input{
     color: #f1f1f1;
 }
 
+body.dark-mode-teacher .input::placeholder {
+    color: #f1f1f1;
+}
+
+body.dark-mode-teacher .btn-primary {
+    background-color: #6c757d;
+    color: #f1f1f1;
+    border: #6c757d;
+}
+
+body.dark-mode-teacher .btn-primary:hover {
+    background-color: #5a6268; /* Cambia esto al color que desees */
+}
+
 body.dark-mode-teacher .iconeye{
     color: #f1f1f1;
 }
