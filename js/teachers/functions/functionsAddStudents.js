@@ -35,26 +35,32 @@ function getStudentsData(callback) {
 
 // Función para mostrar los estudiantes en la tabla
 function displayStudents(students) {
-    const tableBody = document.getElementById('table-body');
-    tableBody.innerHTML = '';
+    const table = document.querySelector('.grid-table');
 
     students.forEach((student, index) => {
         const studentNumber = index + 1;
-        tableBody.innerHTML += `
-            <tr>
-                <th scope="row">${studentNumber}</th>
-                <th scope="row">${student.Email}</th>
-                <td>${student.Lastname}</td>
-                <td>${student.Name}</td>
-                <td>${student.Turn}</td>
-                <td>${student['Path Learning']}</td>
-                <td>${student.Category}</td>
-                <td><button class="btn btn-danger delete-button" data-id="${student.id}">Delete</button></td>
-                <td><button class="btn btn-warning edit-button" data-id="${student.id}">Edit</button></td>
-            </tr>
-        `;
-    });
 
+        // Crea un nuevo elemento de fila
+        const row = document.createElement('div');
+        row.className = 'grid-row';
+
+        // Actualiza el innerHTML del elemento de fila
+        row.innerHTML = `
+            <div class="grid-cell">${studentNumber}</div>
+            <div class="grid-cell">${student.Email}</div>
+            <div class="grid-cell">${student.Lastname}</div>
+            <div class="grid-cell">${student.Name}</div>
+            <div class="grid-cell">${student.Turn}</div>
+            <div class="grid-cell">${student['Path Learning']}</div>
+            <div class="grid-cell">${student.Category}</div>
+            <div class="grid-cell"><button class="btn btn-danger delete-button" data-id="${student.id}">Delete</button></div>
+            <div class="grid-cell"><button class="btn btn-warning edit-button" data-id="${student.id}">Edit</button></div>
+        `;
+
+        // Agrega el elemento de fila a la tabla
+        table.appendChild(row);
+    });
+    
     // Agrega los event listeners a los botones de eliminar y editar
     document.querySelectorAll('.delete-button').forEach(function (button) {
         button.addEventListener('click', function () {

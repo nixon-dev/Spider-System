@@ -34,11 +34,8 @@ function generateFiltersSection(){
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-4 mb-3">
                     <div class="input-group">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="filter-category">Category:</label>
-                        </div>
                         <select class="input custom-select form-control" id="filter-category">
-                            <option selected value="">Sort by category...</option>
+                            <option selected value="">Select a level</option>
                             <option value="Freshman">Freshman</option>
                             <option value="Junior">Junior</option>
                             <option value="Senior">Senior</option>
@@ -101,27 +98,22 @@ function generateFiltersSection(){
 function generateStudentTable(){
     return `
     <!-- Section of SHOW TABLE -->
-
-            <div class="table-responsive">
-                <table class="table mt-4">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Lastname</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Turn</th>
-                            <th scope="col">Path Learning</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Delete</th>
-                            <th scope="col">Edit</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-body" class="table-group-divider">
-                            
-                    </tbody>
-                </table>
+        <div class="table-responsive">
+            <div class="grid-table mt-4">
+                <div class="grid-row header">
+                    <div class="grid-cell">#</div>
+                    <div class="grid-cell">Email</div>
+                    <div class="grid-cell">Lastname</div>
+                    <div class="grid-cell">Name</div>
+                    <div class="grid-cell">Turn</div>
+                    <div class="grid-cell">Path Learning</div>
+                    <div class="grid-cell">Category</div>
+                    <div class="grid-cell">Delete</div>
+                    <div class="grid-cell">Edit</div>
+                </div>
+                <!-- Aquí van las filas de datos -->
             </div>
+        </div>
     `
 }
 
